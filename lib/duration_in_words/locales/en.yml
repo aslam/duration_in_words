@@ -1,0 +1,41 @@
+en:
+  duration:
+    in_words:
+      compact:
+        years:
+          one: yr.
+          other: yrs.
+        months:
+          one: mo.
+          other: mos.
+        days:
+          one: d
+          other: d
+        hours:
+          one: h
+          other: h
+        minutes:
+          one: m
+          other: m
+        seconds:
+          one: s
+          other: s
+      full:
+        years:
+          one: year
+          other: years
+        months:
+          one: month
+          other: months
+        days:
+          one: day
+          other: days
+        hours:
+          one: hour
+          other: hours
+        minutes:
+          one: minute
+          other: minutes
+        seconds:
+          one: second
+          other: seconds
