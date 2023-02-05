@@ -1,0 +1,47 @@
+de:
+  support:
+    array:
+      words_connector: ' '
+      two_words_connector: ' und '
+      last_word_connector: ' und '
+  duration:
+    in_words:
+      format:
+        full:
+          years:
+            one: Jahr
+            other: Jahre
+          months:
+            one: Monat
+            other: Monate
+          days:
+            one: Tag
+            other: Tage
+          hours:
+            one: Stunde
+            other: Stunden
+          minutes:
+            one: Minute
+            other: Minuten
+          seconds:
+            one: Sekunde
+            other: Sekunden
+        compact:
+          years:
+            one: J
+            other: J
+          months:
+            one: M
+            other: M
+          days:
+            one: T
+            other: T
+          hours:
+            one: Std.
+            other: Std.
+          minutes:
+            one: Min
+            other: Min
+          seconds:
+            one: s
+            other: s
