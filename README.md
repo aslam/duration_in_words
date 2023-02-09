@@ -1,4 +1,4 @@
-# DurationInWords ![Ruby](https://github.com/aslam/duration_in_words/actions/workflows/badge.svg)
+# DurationInWords ![Ruby](https://github.com/aslam/duration_in_words/actions/workflows/main.yml/badge.svg)
 
 `duration_in_words` provides a view helper to convert [ActiveSupport::Duration](https://api.rubyonrails.org/classes/ActiveSupport/Duration.html) objects into concise string like `1h 20m and 30s`, with locale support.
 
