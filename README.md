@@ -1,4 +1,4 @@
-# DurationInWords ![Ruby](https://github.com/aslam/duration_in_words/actions/workflows/workflows/badge.svg)
+# DurationInWords ![Ruby](https://github.com/aslam/duration_in_words/actions/workflows/badge.svg)
 
 `duration_in_words` provides a view helper to convert [ActiveSupport::Duration](https://api.rubyonrails.org/classes/ActiveSupport/Duration.html) objects into concise string like `1h 20m and 30s`, with locale support.
 
@@ -6,7 +6,7 @@
 
 Currently, there is no direct way to format `ActiveSupport::Duration` objects in `Rails`. You'd have to resort to using the `#inspect`, which provides limited configuration options. Also, the locale support in the `#inspect` was removed around `Rails 5.1`.
 
-You could do something like the following to format the `ActiveSupport::Duration` object by hand in a view helper:
+You could do something like the following to format an `ActiveSupport::Duration` object by hand in a view helper:
 
 ```ruby
 def duration_as_sentence(duration)
