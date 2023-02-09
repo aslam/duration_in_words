@@ -1,45 +1,50 @@
 en:
   duration:
     in_words:
-      words_connector: ', '
-      two_words_connector: ' and '
-      last_word_connector: ', and '
       format:
         compact:
           years:
-            one: yr.
-            other: yrs.
+            one: '%{count}yr.'
+            other: '%{count}yrs.'
           months:
-            one: mo.
-            other: mos.
+            one: '%{count}mo.'
+            other: '%{count}mos.'
           days:
-            one: d
-            other: d
+            one: '%{count}d'
+            other: '%{count}d'
           hours:
-            one: h
-            other: h
+            one: '%{count}h'
+            other: '%{count}h'
           minutes:
-            one: m
-            other: m
+            one: '%{count}m'
+            other: '%{count}m'
           seconds:
-            one: s
-            other: s
+            one: '%{count}s'
+            other: '%{count}s'
+          support:
+            words_connector: ' '
+            two_words_connector: ' and '
+            last_word_connector: ' and '
         full:
           years:
-            one: year
-            other: years
+            one: '%{count} year'
+            other: '%{count} years'
           months:
-            one: month
-            other: months
+            one: '%{count} month'
+            other: '%{count} months'
           days:
-            one: day
-            other: days
+            one: '%{count} day'
+            other: '%{count} days'
           hours:
-            one: hour
-            other: hours
+            one: '%{count} hour'
+            other: '%{count} hours'
           minutes:
-            one: minute
-            other: minutes
+            one: '%{count} minute'
+            other: '%{count} minutes'
           seconds:
-            one: second
-            other: seconds
+            one: '%{count} second'
+            other: '%{count} seconds'
+          support:
+            words_connector: ', '
+            two_words_connector: ' and '
+            last_word_connector: ', and '

@@ -28,8 +28,8 @@ RSpec.describe DurationInWords do
       [2.5.minutes, "2.5m", "2.5 minutes"],
       [1.hour, "1h", "1 hour"],
       [2.hours + 15.minutes, "2h and 15m", "2 hours and 15 minutes"],
-      [1.day + 2.hours + 30.minutes, "1d, 2h, and 30m", "1 day, 2 hours, and 30 minutes"],
-      [1.year + 3.days + 4.hours + 20.minutes + 30.seconds, "1yr., 3d, 4h, 20m, and 30s",
+      [1.day + 2.hours + 30.minutes, "1d 2h and 30m", "1 day, 2 hours, and 30 minutes"],
+      [1.year + 3.days + 4.hours + 20.minutes + 30.seconds, "1yr. 3d 4h 20m and 30s",
        "1 year, 3 days, 4 hours, 20 minutes, and 30 seconds"]
     ].each do |duration, result, full_result|
       it "#{duration} == #{result}" do
@@ -39,7 +39,7 @@ RSpec.describe DurationInWords do
     end
   end
 
-  context 'locale' do
+  context "with locale" do
     [
       [30.seconds, "30s", "30 Sekunden"],
       [0.5.minutes, "0.5Min", "0.5 Minuten"],

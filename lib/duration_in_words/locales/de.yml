@@ -1,47 +1,50 @@
 de:
-  support:
-    array:
-      words_connector: ' '
-      two_words_connector: ' und '
-      last_word_connector: ' und '
   duration:
     in_words:
       format:
-        full:
-          years:
-            one: Jahr
-            other: Jahre
-          months:
-            one: Monat
-            other: Monate
-          days:
-            one: Tag
-            other: Tage
-          hours:
-            one: Stunde
-            other: Stunden
-          minutes:
-            one: Minute
-            other: Minuten
-          seconds:
-            one: Sekunde
-            other: Sekunden
         compact:
           years:
-            one: J
-            other: J
+            one: '%{count}J'
+            other: '%{count}J'
           months:
-            one: M
-            other: M
+            one: '%{count}M'
+            other: '%{count}M'
           days:
-            one: T
-            other: T
+            one: '%{count}T'
+            other: '%{count}T'
           hours:
-            one: Std.
-            other: Std.
+            one: '%{count}Std.'
+            other: '%{count}Std.'
           minutes:
-            one: Min
-            other: Min
+            one: '%{count}Min'
+            other: '%{count}Min'
           seconds:
-            one: s
-            other: s
+            one: '%{count}s'
+            other: '%{count}s'
+          support:
+            words_connector: ' '
+            two_words_connector: ' und '
+            last_word_connector: ' und '
+        full:
+          years:
+            one: '%{count} Jahr'
+            other: '%{count} Jahre'
+          months:
+            one: '%{count} Monat'
+            other: '%{count} Monate'
+          days:
+            one: '%{count} Tag'
+            other: '%{count} Tage'
+          hours:
+            one: '%{count} Stunde'
+            other: '%{count} Stunden'
+          minutes:
+            one: '%{count} Minute'
+            other: '%{count} Minuten'
+          seconds:
+            one: '%{count} Sekunde'
+            other: '%{count} Sekunden'
+          support:
+            words_connector: ' '
+            two_words_connector: ' und '
+            last_word_connector: ' und '

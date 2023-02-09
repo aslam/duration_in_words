@@ -26,18 +26,19 @@ module ActionView
       #   # Given this locale dictionary:
       #   #
       #   # de:
-      #   #   support:
-      #   #     array:
-      #   #       words_connector: ', '
-      #   #       two_words_connector: ' und '
-      #   #       last_word_connector: ', und '
       #   #   duration:
       #   #     in_words:
       #   #       format:
       #   #         compact:
+      #   #           support:
+      #   #             words_connector: ', '
+      #   #             two_words_connector: ' und '
+      #   #             last_word_connector: ', und '
       #   #           years:
       #   #             one: J
       #   #             other: ...
+      #   #           months:
+      #   #             ...
       #   #         full:
       #   #           ...
       #
