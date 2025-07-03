@@ -134,3 +134,6 @@ Style/MethodDefParentheses:
 
 RSpec/MultipleExpectations:
   Max: 2
+
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false
