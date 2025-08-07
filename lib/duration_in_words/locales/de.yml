@@ -36,7 +36,7 @@ de:
             one: '%{count} Monat'
             other: '%{count} Monate'
           weeks:
-            one: '%{count} Wochen'
+            one: '%{count} Woche'
             other: '%{count} Wochen'          
           days:
             one: '%{count} Tag'
