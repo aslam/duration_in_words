@@ -9,6 +9,9 @@ de:
           months:
             one: '%{count}M'
             other: '%{count}M'
+          weeks:
+            one: '%{count}W'
+            other: '%{count}W'
           days:
             one: '%{count}T'
             other: '%{count}T'
@@ -32,6 +35,9 @@ de:
           months:
             one: '%{count} Monat'
             other: '%{count} Monate'
+          weeks:
+            one: '%{count} Woche'
+            other: '%{count} Wochen'          
           days:
             one: '%{count} Tag'
             other: '%{count} Tage'

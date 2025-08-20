@@ -9,6 +9,9 @@ en:
           months:
             one: '%{count}mo.'
             other: '%{count}mos.'
+          weeks:
+            one: '%{count}wk.'
+            other: '%{count}wks.'
           days:
             one: '%{count}d'
             other: '%{count}d'
@@ -32,6 +35,9 @@ en:
           months:
             one: '%{count} month'
             other: '%{count} months'
+          weeks:
+            one: '%{count} week'
+            other: '%{count} weeks'
           days:
             one: '%{count} day'
             other: '%{count} days'
