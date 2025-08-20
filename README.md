@@ -48,6 +48,9 @@ include ActionView::Helpers::DurationHelper
 >> duration = 1.day + 2.hours + 30.minutes
 >> duration_in_words(duration)
 => "1d 2h and 30m"
+>> duration = 2.5.minutes
+>> duration_in_words(duration)
+=> "2.5m"
 ```
 
 ### Using <tt>:format</tt> option:
@@ -57,7 +60,7 @@ There are two formats available, `:compact`, and `:full`. `:compact` being the d
 ```ruby
 >> duration = 1.day + 2.hours + 30.minutes
 >> duration_in_words(duration, format: :full)
-=> "1 day 2 hours and 30 minutes"
+=> "1 day, 2 hours, and 30 minutes"
 ```
 
 ### Using <tt>:locale</tt> option:
@@ -120,9 +123,9 @@ de:
 ```ruby
 >> duration = 1.day + 2.hours + 30.minutes
 >> duration_in_words(duration, locale: :de)
-=> "1T 2Std. und 30s"
+=> "1T 2Std. und 30Min"
 >> duration_in_words(duration, format: :full, locale: :de)
->> "1 Tag, 2 Std., und 30 Sekunden"
+>> "1 Tag 2 Stunden und 30 Minuten"
 ```
 
 ## Development
