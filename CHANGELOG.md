@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [0.3.0] - 2024-05-24
+
+### Added
+
+- Support for `weeks` as a duration unit by adding the necessary translations to the `en` and `de` locale files.
+
 ## [0.2.0] - 2023-02-04
 
 ### Added
