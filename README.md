@@ -51,6 +51,11 @@ include ActionView::Helpers::DurationHelper
 >> duration = 2.5.minutes
 >> duration_in_words(duration)
 => "2.5m"
+>> duration = 3.weeks
+>> duration_in_words(duration)
+=> "3wks."
+>> duration_in_words(duration)
+=> "2.5m"
 ```
 
 ### Using <tt>:format</tt> option:
@@ -124,6 +129,9 @@ de:
 >> duration = 1.day + 2.hours + 30.minutes
 >> duration_in_words(duration, locale: :de)
 => "1T 2Std. und 30Min"
+>> duration = 3.weeks
+>> duration_in_words(duration, locale: :de)
+=> "3W"
 >> duration_in_words(duration, format: :full, locale: :de)
 >> "1 Tag 2 Stunden und 30 Minuten"
 ```
