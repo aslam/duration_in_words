@@ -10,10 +10,7 @@ module DurationInWords
       locale, scope = parse_options(options)
       parts = duration.parts
 
-      if parts.empty?
-        key = "seconds.#{duration.value == 1 ? 'one' : 'other'}"
-        return I18n.t(key, count: duration.value, scope: scope, locale: locale)
-      end
+      return I18n.t(:seconds, count: duration.value, scope: scope, locale: locale) if parts.empty?
 
       sentencify(parts, scope, locale)
     end
@@ -22,7 +19,7 @@ module DurationInWords
 
     def parse_options(options)
       format = options.fetch(:format, :compact)
-      locale = options.fetch(:locale, :en)
+      locale = options.fetch(:locale, I18n.locale)
 
       scope = format.to_s == "full" ? I18N_SCOPE_FULL : DEFAULT_I18N_SCOPE
 
@@ -32,12 +29,7 @@ module DurationInWords
     def sentencify(parts, scope, locale)
       parts
         .sort_by { |unit, _| ActiveSupport::Duration::PARTS.index(unit) }
-        .map     { |unit, val|
-          case val
-          when 1 then I18n.t("#{unit}.one", count: val, scope: scope, locale: locale)
-          else I18n.t("#{unit}.other", count: val, scope: scope, locale: locale)
-          end
-        }
+        .map     { |unit, val| I18n.t(unit, count: val, scope: scope, locale: locale) }
         .to_sentence(sentence_options(scope, locale))
     end
 

@@ -9,8 +9,8 @@ module ActionView
       #
       # === Options
       # * <tt>:format</tt> - The format to be used in reporting the duration, :full or :compact (default: :compact)
-      # * <tt>:locale</tt> - If +I18n+ is available, you can set a locale and use the connector options defined on
-      #   the 'support.array' namespace in the corresponding dictionary file.
+      # * <tt>:locale</tt> - Defaults to the current +I18n.locale+. You can also pass a locale explicitly and use the
+      #   connector options defined on the 'support.array' namespace in the corresponding dictionary file.
       #
       # === Examples
       # d = 1.day + 2.hours + 30.minutes

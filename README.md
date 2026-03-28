@@ -70,6 +70,8 @@ There are two formats available, `:compact`, and `:full`. `:compact` being the d
 
 ### Using <tt>:locale</tt> option:
 
+If you do not pass `:locale`, the helper uses the current `I18n.locale`.
+
 Given this locale dictionary:
 
 ```yaml

@@ -21,6 +21,12 @@ RSpec.describe DurationInWords do
     expect { duration_in_words(Time.now) }.to raise_error(TypeError)
   end
 
+  it "uses the current I18n locale when one is not provided" do
+    I18n.locale = :de
+
+    expect(duration_in_words(1.hour)).to eq("1Std.")
+  end
+
   describe "#duration_in_words" do
     [
       [30.seconds, "30s", "30 seconds"],
@@ -68,6 +74,62 @@ RSpec.describe DurationInWords do
           expect(duration_in_words(duration, locale: :de, format: :full)).to eq(full_result)
         end
       end
+    end
+  end
+
+  context "with a locale that uses additional plural forms" do
+    before do
+      require "i18n/backend/pluralization"
+
+      I18n::Backend::Simple.include(I18n::Backend::Pluralization)
+      I18n.backend.store_translations(
+        :xx,
+        i18n: {
+          plural: {
+            rule: lambda { |count|
+              if count == 1
+                :one
+              elsif count == 2
+                :few
+              else
+                :other
+              end
+            }
+          }
+        },
+        duration: {
+          in_words: {
+            format: {
+              compact: {
+                hours: {
+                  one: "%<count>s one",
+                  few: "%<count>s few",
+                  other: "%<count>s other"
+                },
+                support: {
+                  words_connector: " ",
+                  two_words_connector: " and ",
+                  last_word_connector: " and "
+                }
+              }
+            }
+          }
+        }
+      )
+
+      I18n.available_locales = %i[en de xx]
+    end
+
+    it "uses the :one plural form" do
+      expect(duration_in_words(1.hour, locale: :xx)).to eq("1 one")
+    end
+
+    it "uses the custom :few plural form" do
+      expect(duration_in_words(2.hours, locale: :xx)).to eq("2 few")
+    end
+
+    it "uses the :other plural form" do
+      expect(duration_in_words(3.hours, locale: :xx)).to eq("3 other")
     end
   end
 end
