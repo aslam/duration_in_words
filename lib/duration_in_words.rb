@@ -13,8 +13,8 @@ module DurationInWords
     autoload :Methods, "duration_in_words/methods"
   end
 
-  I18N_SCOPE_FULL = :'duration.in_words.format.full'
-  DEFAULT_I18N_SCOPE = :'duration.in_words.format.compact'
+  I18N_SCOPE_FULL = :"duration.in_words.format.full"
+  DEFAULT_I18N_SCOPE = :"duration.in_words.format.compact"
 
   module_function
 

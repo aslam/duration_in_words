@@ -1,9 +1,17 @@
 require:
   - rubocop-rspec
+
+plugins:
   - rubocop-rake
 
 AllCops:
   TargetRubyVersion: 2.6
+  NewCops: enable
+
+# This gem keeps development dependencies in the gemspec, which matches the
+# standard Bundler gem template used to generate it.
+Gemspec/DevelopmentDependencies:
+  Enabled: false
 
 # Commonly used screens these days easily fit more than 80 characters.
 Layout/LineLength:
@@ -27,7 +35,7 @@ Layout/SpaceAroundEqualsInParameterDefault:
 # Enforcing double quotes reduces the times where you need to change them
 # when introducing an interpolation. Use single quotes only if their semantics
 # are needed.
-Layout/StringLiterals:
+Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
@@ -38,10 +46,10 @@ Style/StringLiteralsInInterpolation:
 Style/SymbolArray:
   Enabled: true
 
-# Most readable form.
+# The old style configuration for this cop has been removed in recent RuboCop
+# versions, so keep it disabled instead of carrying invalid options.
 Style/OptionHash:
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
+  Enabled: false
 
 # Mixing the styles looks just silly.
 Style/HashSyntax:
@@ -75,7 +83,7 @@ Style/RaiseArgs:
 
 # Indenting the chained dots beneath each other is not supported by this cop,
 # see https://github.com/bbatsov/rubocop/issues/1633
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   Enabled: false
 
 # Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
@@ -137,5 +145,7 @@ Style/MethodDefParentheses:
 RSpec/MultipleExpectations:
   Max: 2
 
+# This gem does not use Capybara, and the bundled cop currently crashes when
+# inspecting these plain RSpec examples under the pinned plugin set.
 Capybara/RSpec/PredicateMatcher:
   Enabled: false

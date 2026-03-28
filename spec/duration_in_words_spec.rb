@@ -14,7 +14,7 @@ RSpec.describe DurationInWords do
   end
 
   it "has a version number" do
-    expect(DurationInWords::VERSION).not_to be nil
+    expect(DurationInWords::VERSION).not_to be_nil
   end
 
   it "raises an error when the argument is of not type ActiveSupport::Duration" do
