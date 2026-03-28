@@ -1,5 +1,16 @@
 ## [Unreleased]
 
+## [0.3.1] - 2026-03-28
+
+### Fixed
+
+- Respect the current `I18n.locale` by default when formatting durations.
+- Delegate pluralization to I18n so locales with plural forms beyond `one` and `other` are handled correctly.
+
+### Changed
+
+- Modernized the RuboCop configuration for the current toolchain and added RubyGems MFA metadata.
+
 ## [0.3.0] - 2025-08-20
 
 ### Added
