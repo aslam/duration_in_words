@@ -1,3 +1,22 @@
+## [0.4.0] - 2026-07-14
+
+### Fixed
+
+- Stop calling `I18n.reload!` when setting up locale files. It was discarding
+  any translations the host app had already stored in memory (e.g. via
+  `I18n.backend.store_translations`), not just ones loaded from files.
+- Removed trailing whitespace from the `de` locale file.
+
+### Changed
+
+- `duration_in_words` now raises `ArgumentError` for an unrecognized `:format`
+  value instead of silently falling back to `:compact`.
+- CI now runs the test suite against a matrix of supported Ruby versions
+  (2.6, 3.1, 3.4) instead of a single pinned version, and runs RuboCop and
+  `bundler-audit` as separate jobs.
+- Expanded the RBS signatures beyond `VERSION` to cover
+  `DurationInWords::Methods` and the `ActionView` helper.
+
 ## [0.3.1] - 2026-03-28
 
 ### Fixed
