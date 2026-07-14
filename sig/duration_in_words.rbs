@@ -1,4 +1,36 @@
 module DurationInWords
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  I18N_SCOPE_FULL: Symbol
+  DEFAULT_I18N_SCOPE: Symbol
+
+  def self.setup_i18n!: () -> void
+
+  module Methods
+    VALID_FORMATS: Array[Symbol]
+
+    def duration_in_words: (untyped duration, ?Hash[Symbol, untyped] options) -> String
+
+    private
+
+    def parse_options: (Hash[Symbol, untyped] options) -> [untyped, Symbol]
+
+    def normalize_format: (untyped format) -> Symbol
+
+    def sentencify: (Hash[Symbol, untyped] parts, Symbol scope, untyped locale) -> String
+
+    def sentence_options: (Symbol scope, untyped locale) -> untyped
+
+    def raise_type_error: (untyped type) -> bot
+  end
+end
+
+module ActionView
+  module Helpers
+    module DurationHelper
+      include DurationInWords::Methods
+
+      def duration_in_words: (untyped duration, ?Hash[Symbol, untyped] options) -> String
+    end
+  end
 end
