@@ -68,6 +68,8 @@ There are two formats available, `:compact`, and `:full`. `:compact` being the d
 => "1 day, 2 hours, and 30 minutes"
 ```
 
+Passing anything other than `:compact` or `:full` (as a symbol or string) raises `ArgumentError`.
+
 ### Using <tt>:locale</tt> option:
 
 If you do not pass `:locale`, the helper uses the current `I18n.locale`.
@@ -86,6 +88,9 @@ de:
           months:
             one: '%{count}M'
             other: '%{count}M'
+          weeks:
+            one: '%{count}W'
+            other: '%{count}W'
           days:
             one: '%{count}T'
             other: '%{count}T'
@@ -109,6 +114,9 @@ de:
           months:
             one: '%{count} Monat'
             other: '%{count} Monate'
+          weeks:
+            one: '%{count} Woche'
+            other: '%{count} Wochen'
           days:
             one: '%{count} Tag'
             other: '%{count} Tage'
