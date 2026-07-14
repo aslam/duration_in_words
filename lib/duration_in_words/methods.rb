@@ -4,6 +4,8 @@ module DurationInWords
   module Methods
     extend self
 
+    VALID_FORMATS = %i[compact full].freeze
+
     def duration_in_words(duration, options = {})
       raise_type_error(duration) unless duration.is_a?(ActiveSupport::Duration)
 
@@ -18,12 +20,21 @@ module DurationInWords
     private
 
     def parse_options(options)
-      format = options.fetch(:format, :compact)
+      format = normalize_format(options.fetch(:format, :compact))
       locale = options.fetch(:locale, I18n.locale)
 
-      scope = format.to_s == "full" ? I18N_SCOPE_FULL : DEFAULT_I18N_SCOPE
+      scope = format == :full ? I18N_SCOPE_FULL : DEFAULT_I18N_SCOPE
 
       [locale, scope]
+    end
+
+    def normalize_format(format)
+      symbol = format.respond_to?(:to_sym) ? format.to_sym : format
+
+      return symbol if VALID_FORMATS.include?(symbol)
+
+      raise ArgumentError,
+            "invalid :format, #{format.inspect} given. Valid formats: #{VALID_FORMATS.map(&:inspect).join(', ')}"
     end
 
     def sentencify(parts, scope, locale)

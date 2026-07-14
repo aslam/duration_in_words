@@ -35,6 +35,14 @@ RSpec.describe DurationInWords do
     expect(I18n.t(:host_app_greeting, locale: :en)).to eq("hi")
   end
 
+  it "raises an error when :format is not :compact or :full" do
+    expect { duration_in_words(1.hour, format: :bogus) }.to raise_error(ArgumentError, /invalid :format/)
+  end
+
+  it "accepts :format given as a string" do
+    expect(duration_in_words(1.hour, format: "full")).to eq("1 hour")
+  end
+
   describe "#duration_in_words" do
     [
       [30.seconds, "30s", "30 seconds"],
