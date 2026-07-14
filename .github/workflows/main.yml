@@ -8,20 +8,51 @@ on:
   pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Test (Ruby ${{ matrix.ruby }})
     strategy:
+      fail-fast: false
       matrix:
         ruby:
-          - '3.1.2'
+          - '2.6'
+          - '3.1'
+          - '3.4'
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-    - name: Run the default task
-      run: bundle exec rake
+    - name: Run the test suite
+      run: bundle exec rake spec
+
+  lint:
+    runs-on: ubuntu-latest
+    name: RuboCop
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+        bundler-cache: true
+    - name: Run RuboCop
+      run: bundle exec rake rubocop
+
+  audit:
+    runs-on: ubuntu-latest
+    name: Bundle Audit
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+        bundler-cache: true
+    - name: Check for insecure dependencies
+      run: bundle exec rake bundle:audit
