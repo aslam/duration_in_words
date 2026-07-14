@@ -22,7 +22,6 @@ module DurationInWords
     locale_files = Dir[File.join File.dirname(__FILE__), "duration_in_words/locales", "*.yml"]
 
     I18n.load_path.unshift(*locale_files)
-    I18n.reload!
   end
 end
 

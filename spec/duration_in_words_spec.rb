@@ -27,6 +27,14 @@ RSpec.describe DurationInWords do
     expect(duration_in_words(1.hour)).to eq("1Std.")
   end
 
+  it "does not wipe out translations the host app already stored in memory" do
+    I18n.backend.store_translations(:en, host_app_greeting: "hi")
+
+    described_class.setup_i18n!
+
+    expect(I18n.t(:host_app_greeting, locale: :en)).to eq("hi")
+  end
+
   describe "#duration_in_words" do
     [
       [30.seconds, "30s", "30 seconds"],
