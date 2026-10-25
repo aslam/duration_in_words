@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "logger" # activesupport < 7.1 needs it loaded first; concurrent-ruby >= 1.3.5 stopped requiring it
 require "i18n"
 require "active_support"
 require "active_support/core_ext"
