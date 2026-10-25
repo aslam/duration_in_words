@@ -65,6 +65,17 @@ An ISO 8601 duration string is parsed with `ActiveSupport::Duration.parse`:
 => "1d 2h and 30m"
 ```
 
+### Core extension
+
+Opt in to calling it directly on a duration:
+
+```ruby
+require "duration_in_words/core_ext"
+
+>> (1.day + 2.hours).in_words(format: :full)
+=> "1 day and 2 hours"
+```
+
 ### Using <tt>:format</tt> option:
 
 There are two formats available, `:compact`, and `:full`. `:compact` being the default.

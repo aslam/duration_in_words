@@ -25,6 +25,12 @@ module DurationInWords
   end
 end
 
+module ActiveSupport
+  class Duration
+    def in_words: (?Hash[Symbol, untyped] options) -> String
+  end
+end
+
 module ActionView
   module Helpers
     module DurationHelper

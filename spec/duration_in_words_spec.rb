@@ -29,6 +29,12 @@ RSpec.describe DurationInWords do
     expect { duration_in_words("1 hour") }.to raise_error(ActiveSupport::Duration::ISO8601Parser::ParsingError)
   end
 
+  it "adds Duration#in_words when the core extension is required" do
+    require "duration_in_words/core_ext"
+
+    expect(2.hours.in_words(format: :full)).to eq("2 hours")
+  end
+
   it "uses the current I18n locale when one is not provided" do
     I18n.locale = :de
 
