@@ -58,6 +58,13 @@ include ActionView::Helpers::DurationHelper
 => "2.5m"
 ```
 
+An ISO 8601 duration string is parsed with `ActiveSupport::Duration.parse`:
+
+```ruby
+>> duration_in_words("P1DT2H30M")
+=> "1d 2h and 30m"
+```
+
 ### Using <tt>:format</tt> option:
 
 There are two formats available, `:compact`, and `:full`. `:compact` being the default.

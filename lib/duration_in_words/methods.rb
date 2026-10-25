@@ -7,6 +7,7 @@ module DurationInWords
     VALID_FORMATS = %i[compact full].freeze
 
     def duration_in_words(duration, options = {})
+      duration = ActiveSupport::Duration.parse(duration) if duration.is_a?(String)
       raise_type_error(duration) unless duration.is_a?(ActiveSupport::Duration)
 
       locale, scope = parse_options(options)

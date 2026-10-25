@@ -21,6 +21,14 @@ RSpec.describe DurationInWords do
     expect { duration_in_words(Time.now) }.to raise_error(TypeError)
   end
 
+  it "accepts an ISO 8601 duration string" do
+    expect(duration_in_words("P1DT2H30M", format: :full)).to eq("1 day, 2 hours, and 30 minutes")
+  end
+
+  it "raises an error for a malformed ISO 8601 string" do
+    expect { duration_in_words("1 hour") }.to raise_error(ActiveSupport::Duration::ISO8601Parser::ParsingError)
+  end
+
   it "uses the current I18n locale when one is not provided" do
     I18n.locale = :de
 
