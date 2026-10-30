@@ -41,4 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 1.21"
   spec.add_development_dependency "rubocop-rake"
   spec.add_development_dependency "rubocop-rspec", "~> 2.18.1"
+  # ponytail: rubocop-capybara 2.23 breaks rubocop-rspec 2.18; drop when moving to rubocop-rspec 3.x
+  spec.add_development_dependency "rubocop-capybara", "< 2.23"
 end

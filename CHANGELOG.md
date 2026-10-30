@@ -1,3 +1,12 @@
+## [Unreleased]
+
+### Added
+
+- `duration_in_words` accepts an ISO 8601 duration string (e.g. `"PT1H30M"`),
+  parsed via `ActiveSupport::Duration.parse`.
+- Opt-in core extension: `require "duration_in_words/core_ext"` adds
+  `ActiveSupport::Duration#in_words`.
+
 ## [0.4.0] - 2026-07-14
 
 ### Fixed
