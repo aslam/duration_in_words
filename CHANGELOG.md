@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-30
+
 ### Added
 
 - `duration_in_words` accepts an ISO 8601 duration string (e.g. `"PT1H30M"`),
