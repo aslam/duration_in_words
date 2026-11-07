@@ -27,6 +27,8 @@ end
 
 This gem does something similar along with providing a flexible way of defining formats in locale files and giving you an option to switch between `:compact`, and `:full` formats.
 
+For how it compares with Rails' built-in options (`#inspect`, `distance_of_time_in_words`, `#iso8601`), see [Format ActiveSupport::Duration as Readable Text in Rails](https://syedaslam.com/posts/formatting-activesupport-duration-objects-in-rails/).
+
 ## Installation
 
 Add to your `Gemfile`:
